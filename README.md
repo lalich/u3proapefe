@@ -24,10 +24,12 @@
 
 # List of Components :
 | COMPONENT        |    PURPOSE    |
-|------------------|-------------|---------|
+|------------------|---------|
 |/farmdesign        | Template design for all pages |
 |/productdesign      | Used for  product creation |
 
+# Trello Board: 
+[Ape food Trello board](https://trello.com/b/2Nur9hRb/apefoodnet)
 
 
 # User features

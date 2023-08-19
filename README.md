@@ -12,6 +12,9 @@
 * Google api
 * Figma
 
+# Trello Board: 
+[Ape food Trello board](https://trello.com/b/2Nur9hRb/apefoodnet)
+
 
 # React routes :
 | ENDPOINT         | METHOD        | PURPOSE |
@@ -27,9 +30,6 @@
 |------------------|---------|
 |/farmdesign        | Template design for all pages |
 |/productdesign      | Used for  product creation |
-
-# Trello Board: 
-[Ape food Trello board](https://trello.com/b/2Nur9hRb/apefoodnet)
 
 
 # User features

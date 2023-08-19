@@ -16,3 +16,5 @@ const Farm = (props) => {
             </div>
         )
 }
+
+export default Farm

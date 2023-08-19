@@ -1,14 +1,15 @@
 import {api} from './api'
 
+
 export const farmsLoader = async () => {
     const response = await fetch(`${api}/farm`)
     const farms = await response.json()
     return farms
 }
 
-export const farmLoader = async () => {
+export const farmLoader = async ({params}) => {
     const id = params.id
-    const response = await fetch(`${api}/farm${id}`)
+    const response = await fetch(`${api}/farm/${id}`)
     const farm = await response.json()
     return farm
 }
@@ -18,9 +19,9 @@ export const productsLoader = async () => {
     return products
 }
 
-export const productLoader = async () => {
+export const productLoader = async ({params}) => {
     const id = params.id
-    const response = await fetch(`${api}/product${id}`)
+    const response = await fetch(`${api}/product/${id}`)
     const product = await response.json()
     return product
 }

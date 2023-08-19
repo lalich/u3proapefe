@@ -1,5 +1,5 @@
 import { api } from './api'
-import {redirect } from 'react-router-dom'
+import { redirect } from 'react-router-dom'
 
 export const createFarmAction = async ({request}) => {
     const formData = await request.formData()
@@ -10,7 +10,7 @@ export const createFarmAction = async ({request}) => {
         state: formData.get('state'),
         city: formData.get('city')
     }
-        await fetch(`{api}/farm`, {
+        await fetch(`${api}/farm`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'aaplication/json'
@@ -40,8 +40,8 @@ export const updateFarmAction = async ({request, params}) => {
         return redirect(`/farm/${id}`)
 }
 
-export const deleteFarm = async ({params}) => {
-    const id = parrams.id
+export const deleteFarmAction = async ({params}) => {
+    const id = params.id
     await fetch(`${api}/farm/${id}`, {
         method: 'DELETE'
     }
@@ -64,7 +64,7 @@ export const createProductAction = async ({request}) => {
     },
     body: JSON.stringify(newProduct)
 })
-    return redirect(`/farm/${id}`)
+    return redirect('/farm')
 }
 
 export const updateProductAction = async ({request, params}) => {
@@ -81,7 +81,7 @@ export const updateProductAction = async ({request, params}) => {
         headers: {
         'Content-Type': 'application/json'
     },
-    body: JSON.stringify(updateFarm)
+    body: JSON.stringify(updateProduct)
 })
     return redirect(`/product/${id}`)
 }

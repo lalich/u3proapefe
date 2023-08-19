@@ -8,7 +8,7 @@ export const farmsLoader = async () => {
 
 export const farmLoader = async () => {
     const id = params.id
-    const response = await fetch(`${api}/farm`)
+    const response = await fetch(`${api}/farm${id}`)
     const farm = await response.json()
     return farm
 }
@@ -20,7 +20,7 @@ export const productsLoader = async () => {
 
 export const productLoader = async () => {
     const id = params.id
-    const response = await fetch(`${api}/product`)
+    const response = await fetch(`${api}/product${id}`)
     const product = await response.json()
     return product
 }

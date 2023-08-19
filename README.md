@@ -13,7 +13,7 @@
 * Figma
 
 
-# Product routes :
+# React routes :
 | ENDPOINT         | METHOD        | PURPOSE |
 |------------------|-------------|---------|
 |/            |  GET        | Show all products |
@@ -21,6 +21,12 @@
 |/Create     |  POST   |  Create a product |
 |/Update/:id      |  PUT    | Edit a product |
 |/Delete/:id       |  DELETE       | Remove a product from the db |
+
+# List of Components :
+| COMPONENT        |    PURPOSE    |
+|------------------|-------------|---------|
+|/farmdesign        | Template design for all pages |
+|/productdesign      | Used for  product creation |
 
 
 

@@ -1,26 +1,33 @@
-const Product = () => {
-    const product = useLoaderData()
-    console.log(product) 
+import { Link, useLoaderData, Form } from 'react-router-dom';
 
-        return (
-            
-            <div className='farm'>
-                
-                <h1>{product.productname}</h1>
-                <h5>{product.description}</h5>
+const Home = () => {
+    const products = useLoaderData(); 
+    
+    return (
 
-                <h1>Edit a Product</h1>
+        <div>
 
-            <Form action="/update:id" method='PUT'>
-                <input type='text' name='productname' placeholder='Product Name'/>
-                <input type='text' name='image' placeholder='Product Image'/>
-                <input type='number' name='price' placeholder='Product Price'/>
-                <input type='text' name='description' placeholder='Product Description'/>
-                <input type='submit' value='Create Product'/>
-            </Form>
-            </div>
-            
-        )
-}
+<h1>Create a Product</h1>
+        <Form action='/create' method='POST'>
+            <input type='text' name='productname' placeholder='Product Name'/>
+            <input type='text' name='image' placeholder='Product Image'/>
+            <input type='number' name='price' placeholder='Product Price'/>
+            <input type='text' name='description' placeholder='Product Description'/>
+        <input type='submit' value='Create Product'/>
+        </Form>
 
-export default Product
+            {products.map((product, index) => (
+                <div key={product._id} className='productname'>
+                    <Link to={`/${product._id}`}>
+                        <h1>{product.productname}</h1>
+                    </Link>
+                    <img src={product.image} alt={product.name} />
+                    <h2>${product.price}</h2>
+                    <h3>Description: {product.description}</h3>
+                </div>
+            ))}
+        </div>
+    );
+};
+
+export default Home;

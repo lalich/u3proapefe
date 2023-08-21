@@ -1,6 +1,6 @@
 import { useLoaderData } from 'react-router-dom'
 
-const Farm = (props) => {
+const Farm = () => {
     const farm = useLoaderData()
     console.log(farm) 
 
@@ -16,3 +16,5 @@ const Farm = (props) => {
             </div>
         )
 }
+
+export default Farm

@@ -1,4 +1,5 @@
-// import {api} from './api'
+import { api } from './api'
+
 
 // export const farmsLoader = async () => {
 //     const response = await fetch(`${api}/farm`)
@@ -6,21 +7,23 @@
 //     return farms
 // }
 
-// export const farmLoader = async () => {
+// export const farmLoader = async ({params}) => {
 //     const id = params.id
-//     const response = await fetch(`${api}/farm${id}`)
+//     const response = await fetch(`${api}/farm/${id}`)
 //     const farm = await response.json()
 //     return farm
 // }
-// export const productsLoader = async () => {
-//     const response = await fetch(`${api}/product`)
-//     const products = await response.json()
-//     return products
-// }
+export const productsLoader = async () => {
+    const response = await fetch(`${api}/product`)
+    console.log(response)
+    const products = await response.json()
+    console.log(products)
+    return products
+}
 
-// export const productLoader = async () => {
-//     const id = params.id
-//     const response = await fetch(`${api}/product${id}`)
-//     const product = await response.json()
-//     return product
-// }
+export const productLoader = async ({params}) => {
+    const id = params.id
+    const response = await fetch(`${api}/product/${id}`)
+    const product = await response.json()
+    return product
+}

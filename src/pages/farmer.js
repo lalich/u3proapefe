@@ -1,6 +1,6 @@
 import { Link, useLoaderData, Form } from 'react-router-dom'
 
-const Farmer = (props) => {
+const Farmer = () => {
     const product = useLoaderData()
     const farm = useLoaderData()
 
@@ -23,7 +23,6 @@ const Farmer = (props) => {
             <input type='number' name='price' placeholder='Product Price'/>
             <input type='text' name='description' placeholder='Product Description'/>
         <input type='submit' value='Create Product'/>
-        
         </Form>
         </div>
         

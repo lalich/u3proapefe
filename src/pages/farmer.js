@@ -1,6 +1,6 @@
 import { Link, useLoaderData, Form } from 'react-router-dom'
 
-const Farmer = (props) => {
+const Farmer = () => {
     const product = useLoaderData()
     const farm = useLoaderData()
 

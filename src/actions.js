@@ -13,7 +13,7 @@ export const createFarmAction = async ({request}) => {
         await fetch(`${api}/farm`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'aaplication/json'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(newFarm)
         })

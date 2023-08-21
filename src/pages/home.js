@@ -2,11 +2,12 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const Home = () => {
     const products = useLoaderData(); 
+    
     return (
         <div>
             {products.map((product, index) => (
                 <div key={product._id} className='productname'>
-                    <Link to={`product/${product._id}`}>
+                    <Link to={`/product/${product._id}`}>
                         <h1>{product.productname}</h1>
                     </Link>
                     <img src={product.image} alt={product.name} />

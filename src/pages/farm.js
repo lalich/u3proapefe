@@ -1,6 +1,6 @@
 import { useLoaderData } from 'react-router-dom'
 
-const Farm = (props) => {
+const Farm = () => {
     const farm = useLoaderData()
     console.log(farm) 
 

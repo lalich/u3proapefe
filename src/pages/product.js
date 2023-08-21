@@ -1,6 +1,6 @@
 import { useLoaderData } from 'react-router-dom'
 
-const Products = (props) => {
+const Products = () => {
     const product = useLoaderData()
     console.log(product) 
 

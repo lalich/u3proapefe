@@ -5,7 +5,7 @@ const Products = () => {
     console.log(product) 
 
         return (
-            <div className='farm'>
+            <div className='product'>
                 <h1>{product.productname}</h1>
                 <h2>{product.image}</h2>
                 <img src={product.image} alt={product.productname} />

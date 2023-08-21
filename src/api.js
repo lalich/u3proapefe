@@ -1,1 +1,1 @@
-export const api = 'https://beapefood.onrender.com/'
+export const api = 'https://beapefood.onrender.com'

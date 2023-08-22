@@ -1,8 +1,9 @@
 import { Link, useLoaderData, Form } from 'react-router-dom';
-import { farmsLoader, productsLoader } from '../loaders';
+import { farmsAndProductsLoader } from '../loaders';
+
 const Home = () => {
-    const products   = useLoaderData(productsLoader())
-    const farms = useLoaderData(farmsLoader())
+    const { farms, products }  = useLoaderData(farmsAndProductsLoader())
+    
 
 
     console.log(farms)

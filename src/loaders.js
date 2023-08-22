@@ -1,5 +1,16 @@
 import { api } from './api'
 
+export const farmsAndProductsLoader = async () => {
+    const farmsResponse = await fetch(`${api}/farm`)
+    const farms = await farmsResponse.json()
+
+    const productsResponse = await fetch(`${api}/product`)
+        const products = await productsResponse.json()
+
+    return { farms, products }
+    console.log(farms, products)
+    }
+
 
 export const farmsLoader = async () => {
     const response = await fetch(`${api}/farm`)

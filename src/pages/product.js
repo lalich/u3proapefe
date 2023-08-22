@@ -28,7 +28,7 @@ const Product = () => {
             </Form>
 
             <h2>Delete Product</h2>
-    <Form action={`/delete/${product._id}`} method="post">
+    <Form action={`/delete/product/${product._id}`} method="post">
         <input type="submit" value="Delete Product"/>
     </Form>
             </div>

@@ -1,22 +1,15 @@
-import { Link, useLoaderData, Form, redirect } from 'react-router-dom';
-import { farmsAndProductsLoader } from '../loaders';
-
+import { Link, useLoaderData, Form } from 'react-router-dom';
+import { farmsAndProductsLoader } from '../../loaders';
 
 const Home = () => {
     const { farms, products }  = useLoaderData(farmsAndProductsLoader())
-
+    
 
 
     console.log(farms)
     return (
-
         <div>
-
-        <a href='/user/signup'>Farmer Sign-up</a>
-        <br/>
-        <a href='/user/signup'>User Sign-up</a>
-
-            {/* <h1>Create a Farm</h1>
+            <h1>Create a Farm</h1>
         <Form action='/create/farm' method='POST'>
             <input type='text' name='farmname' placeholder='Farm Name'/>
             <input type='text' name='image' placeholder='Farm Logo'/>
@@ -37,7 +30,7 @@ const Home = () => {
             <input type='text' name='username' placeholder='Username' />
             
         <input type='submit' value='Create Product'/>
-        </Form> */}
+        </Form>
         <h1>List of da Product$</h1>
             {products.map((product, index) => (
                 <div key={product._id} className='productname'>

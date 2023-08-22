@@ -17,6 +17,8 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route path="update/farm/:id" action={updateFarmAction} /> 
         <Route path='delete/product/:id' action={deleteProductAction} />
         <Route path='delete/farm/:id' action={deleteFarmAction} />
+        <Route path='farmer/signup'/>
+        <Route path='user/signup'/>
     </Route>
 ))
 

@@ -9,7 +9,7 @@ const App = () => {
   <div className='App'>
     <Header />
   
-      <h1>This is the Way</h1>
+      <h1>Welcome to APEFooD.NET</h1>
 
  
     <Outlet />

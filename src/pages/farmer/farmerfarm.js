@@ -1,6 +1,6 @@
 import { useLoaderData, Form } from 'react-router-dom'
-import { deleteFarmAction } from '../actions'
-import { farmLoader } from '../loaders'
+import { deleteFarmAction } from '../../actions'
+import { farmLoader } from '../../loaders'
 
 
 const Farm = () => {
@@ -17,7 +17,7 @@ const Farm = () => {
                 <h3>{farm.city}</h3>
                 <h3>{farm.state}</h3>
            
-                         {/* <h1>Edit Farm</h1>
+                         <h1>Edit Farm</h1>
 
                          <Form action={`/update/farm/${farm._id}`} method='PUT'>
                              <input type='text' name='farmname' placeholder={farm.farmname}/>
@@ -31,9 +31,7 @@ const Farm = () => {
                          <h2>Delete Farm</h2>
                  <Form action={`/delete/farm/${farm._id}`} method="post">
                      <input type="submit" value="Delete da Farm"/>
-                 </Form> */}
-
-<button>favorite</button>
+                 </Form>
                          </div>
                          
                      )

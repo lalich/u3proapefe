@@ -17,7 +17,7 @@ const Product = () => {
 
                 <h1>Edit a Product</h1>
 
-            <Form action={`/update/:${id}`} method='PUT'>
+            <Form action={`/update/${id}`} method='PUT'>
                 <input type='text' name='productname' placeholder='Product Name'/>
                 <input type='text' name='image' placeholder='Product Image'/>
                 <input type='number' name='price' placeholder='Product Price'/>

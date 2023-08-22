@@ -54,6 +54,8 @@ export const createProductAction = async ({request}) => {
     const newProduct = {
         productname: formData.get('productname'),
         description: formData.get('description'),
+        image: formData.get("image"),
+        username: formData.get("username"),
         price: formData.get('price')
     }    
     await fetch(`${api}/product`, {
@@ -72,6 +74,8 @@ export const updateProductAction = async ({request, params}) => {
     const updateProduct = {
         productname: formData.get('productname'),
         description: formData.get('description'),
+        image: formData.get('image'),
+        username: formData.get("username"),
         price: formData.get('price')
     }
     await fetch(`${api}/product/${id}`, {

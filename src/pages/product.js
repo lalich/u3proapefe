@@ -1,4 +1,5 @@
 import { useLoaderData, Form } from 'react-router-dom'
+import deleteProductAction from '../actions'
 
 const Product = () => {
     const product = useLoaderData()
@@ -19,12 +20,17 @@ const Product = () => {
                 <h1>Edit a Product</h1>
 
             <Form action={`/update/${id}`} method='PUT'>
-                <input type='text' name='productname' placeholder='Product Name'/>
-                <input type='text' name='image' placeholder='Product Image'/>
-                <input type='number' name='price' placeholder='Product Price'/>
-                <input type='text' name='description' placeholder='Product Description'/>
+                <input type='text' name='productname' placeholder={product.productname}/>
+                <input type='text' name='image' placeholder={product.image}/>
+                <input type='number' name='price' placeholder={product.price}/>
+                <input type='text' name='description' placeholder={product.description}/>
                 <input type='submit' value='Edit Product'/>
             </Form>
+
+            <h2>Delete Person</h2>
+    <Form action={`/delete/${product._id}`} method="post">
+        <input type="submit" value="Delete Procuct"/>
+    </Form>
             </div>
             
         )

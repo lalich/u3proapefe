@@ -9,6 +9,8 @@ const Home = () => {
             <input type='text' name='image' placeholder='Product Image'/>
             <input type='number' name='price' placeholder='Product Price'/>
             <input type='text' name='description' placeholder='Product Description'/>
+            <input type='text' name='username' placeholder='Username' />
+            
         <input type='submit' value='Create Product'/>
         </Form>
             {products.map((product, index) => (

@@ -3,9 +3,9 @@ import { api } from './api'
 
 export const farmsLoader = async () => {
     const response = await fetch(`${api}/farm`)
-    console.log(response)
+    // console.log(response)
     const farms = await response.json()
-    console.log(farms)
+    // console.log(farms)
     return farms
 }
 
@@ -17,9 +17,9 @@ export const farmLoader = async ({params}) => {
 }
 export const productsLoader = async () => {
     const response = await fetch(`${api}/product`)
-    console.log(response)
+    // console.log(response)
     const products = await response.json()
-    console.log(products)
+    // console.log(products)
     return products
 }
 

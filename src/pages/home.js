@@ -1,30 +1,13 @@
 import { Link, useLoaderData, Form } from 'react-router-dom';
 import { farmsLoader, productsLoader } from '../loaders';
 const Home = () => {
-    const products   = useLoaderData(productsLoader)
-    const farms = useLoaderData(farmsLoader)
+    const products   = useLoaderData(productsLoader())
+    const farms = useLoaderData(farmsLoader())
+
+
+    console.log(farms)
     return (
         <div>
-<h1>Create a Product</h1>
-        <Form action='/create/product' method='POST'>
-            <input type='text' name='productname' placeholder='Product Name'/>
-            <input type='text' name='image' placeholder='Product Image'/>
-            <input type='number' name='price' placeholder='Product Price'/>
-            <input type='text' name='description' placeholder='Product Description'/>
-            <input type='text' name='username' placeholder='Username' />
-            
-        <input type='submit' value='Create Product'/>
-        </Form>
-            {products.map((product, index) => (
-                <div key={product._id} className='productname'>
-                    <Link to={`/${product._id}`}>
-                        <h1>{product.productname}</h1>
-                    </Link>
-                    <img src={product.image} alt={product.name} />
-                    <h2>${product.price}</h2>
-                    <h3>Description: {product.description}</h3>
-                </div>
-            ))}
             <h1>Create a Farm</h1>
         <Form action='/create/farm' method='POST'>
             <input type='text' name='farmname' placeholder='Farm Name'/>
@@ -37,14 +20,36 @@ const Home = () => {
 
         <input type='submit' value='Create Farm'/>
         </Form>
-
-        {farms.map((farmerInfo, index) => (
-                <div key={farmerInfo._id} className='farmname'>
-                    <Link to={`/${farmerInfo._id}`}>
-                        <h1>{farmerInfo.farmname}</h1>
+<h1>Create a Product</h1>
+        <Form action='/create/product' method='POST'>
+            <input type='text' name='productname' placeholder='Product Name'/>
+            <input type='text' name='image' placeholder='Product Image'/>
+            <input type='number' name='price' placeholder='Product Price'/>
+            <input type='text' name='description' placeholder='Product Description'/>
+            <input type='text' name='username' placeholder='Username' />
+            
+        <input type='submit' value='Create Product'/>
+        </Form>
+        <h1>List of da Product$</h1>
+            {products.map((product, index) => (
+                <div key={product._id} className='productname'>
+                    <Link to={`product/${product._id}`}>
+                        <h1>{product.productname}</h1>
                     </Link>
-                    <img src={farmerInfo.image} alt={farmerInfo.name} />
-                    <h2>{[farmerInfo.adress, farmerInfo.city, farmerInfo.state]}</h2>
+                    <img src={product.image} alt={product.name} />
+                    <h2>${product.price}</h2>
+                    <h3>Description: {product.description}</h3>
+                </div>
+            ))}
+            <h1>Welcome to the FarmLand$</h1>
+        {farms.map((farm, index) => (
+                <div key={farm._id} className='farmname'>
+                    <Link to={`farm/${farm._id}`}>
+                        <h1>{farm.farmname}</h1>
+                    </Link>
+                    <img src={farm.image} alt={farm.name} />
+                    <h2>{farm.address}</h2>
+                    <h2>{farm.city} ,{farm.state}</h2>
                     
                 </div>
             ))}

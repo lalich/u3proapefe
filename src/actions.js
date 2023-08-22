@@ -23,34 +23,36 @@ export const createFarmAction = async ({request}) => {
         return redirect('/')
 }
 
-// export const updateFarmAction = async ({request, params}) => {
-//     const id = params.id
-//     const formData = await request.formData()
-//     const updateFarm = {
-//         farmname: formData.get('farmname'),
-//         image: formData.get('image'),
-//         address: formData.get('address'),
-//         state: formData.get('state'),
-//         city: formData.get('city')
-//     }
-//         await fetch (`${api}/farm/${id}`, {
-//             method : 'PUT',
-//             headers: {
-//                 'Content-Type': 'applicatoin/json'
-//             },
-//             body: JSON.stringify(updateFarm)
-//         })
-//         return redirect(`/farm/${id}`)
-// }
+export const updateFarmAction = async ({request, params}) => {
+    const id = params.id
+    const formData = await request.formData()
+   
+    const updateFarm = {
+        farmname: formData.get('farmname'),
+        image: formData.get('image'),
+        address: formData.get('address'),
+        state: formData.get('state'),
+        city: formData.get('city')
+    }
+    console.log(updateFarm)
+        await fetch (`${api}/farm/${id}`, {
+            method : 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updateFarm)
+        })
+        return redirect(`/`)
+}
 
-// export const deleteFarm = async ({params}) => {
-//     const id = parrams.id
-//     await fetch(`${api}/farm/${id}`, {
-//         method: 'DELETE'
-//     }
-//     )
-//     return redirect('/')
-// }
+export const deleteFarmAction = async ({params}) => {
+    const id = params.id
+    await fetch(`${api}/farm/${id}`, {
+        method: 'DELETE'
+    }
+    )
+    return redirect('/')
+}
 
 export const createProductAction = async ({request}) => {
     const formData = await request.formData()

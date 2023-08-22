@@ -19,7 +19,7 @@ const Product = () => {
 
                 <h1>Edit a Product</h1>
 
-            <Form action={`/update/${id}`} method='PUT'>
+            <Form action={`/update/product/${id}`} method='PUT'>
                 <input type='text' name='productname' placeholder={product.productname}/>
                 <input type='text' name='image' placeholder={product.image}/>
                 <input type='number' name='price' placeholder={product.price}/>
@@ -27,7 +27,7 @@ const Product = () => {
                 <input type='submit' value='Edit Product'/>
             </Form>
 
-            <h2>Delete Person</h2>
+            <h2>Delete Product</h2>
     <Form action={`/delete/${product._id}`} method="post">
         <input type="submit" value="Delete Product"/>
     </Form>

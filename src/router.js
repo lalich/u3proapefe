@@ -9,8 +9,11 @@ import { createFarmAction, updateFarmAction, deleteFarmAction, createProductActi
 const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<App/>}>
         <Route path='' element={<Home/>} loader={productsLoader}/>
-        <Route path=':id' element={<Product/>} loader={productLoader}/>
-        <Route path='create' action={createProductAction} />
+        <Route path='' element={<Home/>} loader={farmsLoader}/>
+        <Route path='product/:id' element={<Product/>} loader={productLoader}/>
+        <Route path='farm/:id' element={<Product/>} loader={farmLoader}/>
+        <Route path='create/product' action={createProductAction} />
+        <Route path='create/farm' action={createFarmAction} />
         <Route path="update/:id" action={updateProductAction} /> 
         <Route path='delete/:id' action={deleteProductAction} />
     </Route>

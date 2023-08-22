@@ -1,24 +1,27 @@
 import { api } from './api'
 import {redirect } from 'react-router-dom'
 
-// export const createFarmAction = async ({request}) => {
-//     const formData = await request.formData()
-//     const newFarm = {
-//         farmname: formData.get('farmname'),
-//         image: formData.get('image'),
-//         address: formData.get('address'),
-//         state: formData.get('state'),
-//         city: formData.get('city')
-//     }
-//         await fetch(`{api}/farm`, {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'aaplication/json'
-//             },
-//             body: JSON.stringify(newFarm)
-//         })
-//         return redirect('/farm')
-// }
+export const createFarmAction = async ({request}) => {
+    const formData = await request.formData()
+    const newFarm = {
+        farmname: formData.get('farmname'),
+        image: formData.get('image'),
+        address: formData.get('address'),
+        state: formData.get('state'),
+        city: formData.get('city'),
+        username: formData.get('username'),
+        password: formData.get('password')
+    }
+    console.log(newFarm)
+        await fetch(`${api}/farm`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": 'application/json'
+            },
+            body: JSON.stringify(newFarm)
+        })
+        return redirect('/')
+}
 
 // export const updateFarmAction = async ({request, params}) => {
 //     const id = params.id

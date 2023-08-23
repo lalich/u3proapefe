@@ -12,9 +12,6 @@ const Home = () => {
 
         <div>
 
-        <a href='/user/signup'>Farmer Sign-up</a>
-        <br/>
-        <a href='/user/signup'>User Sign-up</a>
 
             {/* <h1>Create a Farm</h1>
         <Form action='/create/farm' method='POST'>

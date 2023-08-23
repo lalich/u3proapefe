@@ -1,17 +1,16 @@
 import { useLoaderData, Form } from 'react-router-dom'
 import deleteProductAction from '../../actions'
+import { productLoader, productsLoader } from '../../loaders'
 
-const Product = () => {
-    const product = useLoaderData()
-    console.log("here_")
-    console.log(product)
-    console.log("here")
+const FProduct = () => {
+    const product = useLoaderData(productsLoader())
+ 
     const id =  product._id
-    console.log(id)
+
 
         return (
             
-            <div className='farm'>
+            <div className='farmproduct'>
                 
                 <h1>{product.productname}</h1>
                 <img src={product.image}/>
@@ -36,4 +35,4 @@ const Product = () => {
         )
 }
 
-export default Product
+export default FProduct

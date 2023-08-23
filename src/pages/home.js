@@ -11,9 +11,12 @@ const Home = () => {
     return (
         <div>
 
-        <a href='/farmer/signup'>Farmer Sign-up</a>
+        <a href='/farmer/signup'>Farmer Sign-up</a><br/>
+        <a href='/farmer/login'>Farmer Start plantin</a>
+        <br/><br/>
         <br/>
-        <a href='/user/signup'>User Sign-up</a>
+        <a href='/user/signup'>User Sign-up</a><br/>
+         <a href='/user/login'>User find da foods</a>
 
             {/* <h1>Create a Farm</h1>
         <Form action='/create/farm' method='POST'>

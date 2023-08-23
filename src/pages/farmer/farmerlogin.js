@@ -3,7 +3,7 @@ import { Form } from "react-router-dom";
 const FLogin = () => {
     return <div>
         <h3>Login Farmer</h3>
-        <Form action="farmer/login" method="POST">
+        <Form action="" method="POST">
             <label htmlFor="farmername">Farmername</label>
             <input type="text" name="farmername" id="farmername" />
             <label htmlFor="password">Password</label>

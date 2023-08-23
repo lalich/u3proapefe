@@ -1,7 +1,7 @@
 import { Link, useLoaderData, Form } from 'react-router-dom';
 import { farmsAndProductsLoader } from '../../loaders';
 
-const Home = () => {
+const FarmerHome = () => {
     const { farms, products }  = useLoaderData(farmsAndProductsLoader())
     
 
@@ -57,4 +57,4 @@ const Home = () => {
         </div>
     );
 };
-export default Home;
+export default FarmerHome;

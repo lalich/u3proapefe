@@ -118,3 +118,55 @@ console.log(newFarmer)
     })
     return redirect('/')
 }
+export const userSignupAction = async ({request}) => {
+    const formData = await request.formData()
+    console.log(formData)
+    const newUser = {
+    username: formData.get('username'),
+    password: formData.get('password')
+}
+console.log(newUser)
+    await fetch(`${api}/user/signup`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": 'application/json'
+        },
+        body: JSON.stringify(newUser)
+    })
+    return redirect('/')
+}
+
+export const farmerLoginAction = async ({request}) => {
+    const formData = await request.formData()
+    console.log(formData)
+    const newFarmer = {
+    farmername: formData.get('farmername'),
+    password: formData.get('password')
+}
+console.log(newFarmer)
+    await fetch(`${api}/farmer/signup`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": 'application/json'
+        },
+        body: JSON.stringify(newFarmer)
+    })
+    return redirect('/farmer')
+}
+export const userLoginAction = async ({request}) => {
+    const formData = await request.formData()
+    console.log(formData)
+    const newUser = {
+    username: formData.get('username'),
+    password: formData.get('password')
+}
+console.log(newUser)
+    await fetch(`${api}/user/signup`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": 'application/json'
+        },
+        body: JSON.stringify(newUser)
+    })
+    return redirect('/')
+}

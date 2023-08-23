@@ -11,8 +11,7 @@ const App = () => {
     <Header />
   
       <h1>Welcome to APEFooD.NET</h1>
-      <MapComponent />
- 
+    <MapComponent />
     <Outlet />
   </div>
 )}

@@ -5,6 +5,7 @@ import Product from './pages/product'
 import Home from './pages/home'
 import { farmsAndProductsLoader, farmsLoader, farmLoader, productsLoader, productLoader } from './loaders'
 import { createFarmAction, updateFarmAction, deleteFarmAction, createProductAction, updateProductAction, deleteProductAction } from './actions'
+import MapComponent from './pages/user/userlogin'
 
 const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<App/>}>
@@ -17,8 +18,8 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route path="update/farm/:id" action={updateFarmAction} /> 
         <Route path='delete/product/:id' action={deleteProductAction} />
         <Route path='delete/farm/:id' action={deleteFarmAction} />
-        <Route path='farmer/signup'/>
-        <Route path='user/signup'/>
+        <Route path='farmer/signup/' />
+        <Route path='user/signin' loader={MapComponent}/>
     </Route>
 ))
 

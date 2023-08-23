@@ -15,7 +15,7 @@ const Home = () => {
         <a href='/user/signup'>Farmer Sign-up</a>
         <br/>
         <a href='/user/signup'>User Sign-up</a>
-
+        <a href='/user/signin'>User Sign-in</a>
             {/* <h1>Create a Farm</h1>
         <Form action='/create/farm' method='POST'>
             <input type='text' name='farmname' placeholder='Farm Name'/>

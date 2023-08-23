@@ -8,8 +8,20 @@ export const farmsAndProductsLoader = async () => {
         const products = await productsResponse.json()
 
     return { farms, products }
-    console.log(farms, products)
+  
     }
+
+export const farmerLoader = async () => {
+    const farmerFarmsResponse = await fetch(`${api}/farm`)
+    console.log(farmerFarmsResponse)
+    const fFarms = await farmerFarmsResponse.json()
+
+    const farmerProductsResponse = await fetch(`${api}/product`)
+    console.log(farmerProductsResponse)
+        const fProducts = await farmerProductsResponse.json()
+
+    return { fFarms, fProducts }
+}
 
 
 export const farmsLoader = async () => {

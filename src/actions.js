@@ -1,16 +1,21 @@
 import { api } from './api'
-import {redirect } from 'react-router-dom'
+import { redirect } from 'react-router-dom'
+import { cookies } from 'react-cookie'
 
-export const createFarmAction = async ({request}) => {
+export const createFarmAction = async ({request, cookies}) => {
     const formData = await request.formData()
+    
+    if (!cookies.sessionID) {
+        return redirect('/farmer/login')
+    }
+    
     const newFarm = {
         farmname: formData.get('farmname'),
         image: formData.get('image'),
         address: formData.get('address'),
         state: formData.get('state'),
         city: formData.get('city'),
-        username: formData.get('username'),
-        password: formData.get('password')
+        farmername: formData.get('farmername')
     }
     console.log(newFarm)
         await fetch(`${api}/farm`, {
@@ -23,16 +28,22 @@ export const createFarmAction = async ({request}) => {
         return redirect('/')
 }
 
-export const updateFarmAction = async ({request, params}) => {
+export const updateFarmAction = async ({request, params, cookies}) => {
     const id = params.id
     const formData = await request.formData()
-   
+    
+    if (!cookies.sessionID) {
+        return redirect('/farmer/login')
+    }
+    
     const updateFarm = {
         farmname: formData.get('farmname'),
         image: formData.get('image'),
         address: formData.get('address'),
         state: formData.get('state'),
-        city: formData.get('city')
+        city: formData.get('city'),
+        zip: formData.get('zip'),
+        farmername: formData.get('farmername')
     }
     console.log(updateFarm)
         await fetch (`${api}/farm/${id}`, {
@@ -45,8 +56,12 @@ export const updateFarmAction = async ({request, params}) => {
         return redirect(`/`)
 }
 
-export const deleteFarmAction = async ({params}) => {
+export const deleteFarmAction = async ({params, cookies}) => {
     const id = params.id
+    if (!cookies.sessionID) {
+        return redirect('/farmer/login')
+    }
+    
     await fetch(`${api}/farm/${id}`, {
         method: 'DELETE'
     }
@@ -54,14 +69,20 @@ export const deleteFarmAction = async ({params}) => {
     return redirect('/')
 }
 
-export const createProductAction = async ({request}) => {
+export const createProductAction = async ({request, cookies}) => {
     const formData = await request.formData()
+    if (!cookies.sessionID) {
+        return redirect('/farmer/login')
+    }
+    
     const newProduct = {
         productname: formData.get('productname'),
         description: formData.get('description'),
         image: formData.get('image'),
-        username: formData.get('username'),
-        price: formData.get('price')
+        price: formData.get('price'),
+        farmername: formData.get('farmername'),
+        username: formData.get('username')
+       
     }    
     await fetch(`${api}/product`, {
     method: 'POST', 
@@ -73,15 +94,21 @@ export const createProductAction = async ({request}) => {
     return redirect(`/`)
 }
 
-export const updateProductAction = async ({request, params}) => {
+export const updateProductAction = async ({request, params, cookies}) => {
     const id = params.id
     const formData = await request.formData()
+    if (!cookies.sessionID) {
+        return redirect('/farmer/login')
+    }
+    
     const updateProduct = {
         productname: formData.get('productname'),
         description: formData.get('description'),
         image: formData.get('image'),
-        username: formData.get('username'),
-        price: formData.get('price')
+        price: formData.get('price'),
+        farmername: formData.get('farmername'),
+        username: formData.get('username')
+      
     }
     await fetch(`${api}/product/${id}`, {
         method: 'PUT',
@@ -93,8 +120,12 @@ export const updateProductAction = async ({request, params}) => {
     return redirect(`/`)
 }
 
-export const deleteProductAction = async ({params}) => {
+export const deleteProductAction = async ({params, cookies}) => {
     const id = params.id
+    if (!cookies.sessionID) {
+        return redirect('/farmer/login')
+    }
+    
     await fetch(`${api}/product/${id}`, {
         method: 'DELETE'
     })
@@ -144,7 +175,7 @@ export const farmerLoginAction = async ({request}) => {
     password: formData.get('password')
 }
 console.log(newFarmer)
-    await fetch(`${api}/farmer/signup`, {
+    await fetch(`${api}/farmer/login`, {
         method: 'POST',
         headers: {
             "Content-Type": 'application/json'
@@ -161,7 +192,7 @@ export const userLoginAction = async ({request}) => {
     password: formData.get('password')
 }
 console.log(newUser)
-    await fetch(`${api}/user/signup`, {
+    await fetch(`${api}/user/login`, {
         method: 'POST',
         headers: {
             "Content-Type": 'application/json'
@@ -170,3 +201,4 @@ console.log(newUser)
     })
     return redirect('/')
 }
+

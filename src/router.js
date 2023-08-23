@@ -3,8 +3,12 @@ import App from './App'
 import Farms from './pages/farm'
 import Product from './pages/product'
 import Home from './pages/home'
+import FSignup from './pages/farmer/farmersignup'
+import USignup from './pages/user/usersignup'
+import FLogin from './pages/farmer/farmerlogin'
+import ULogin from './pages/user/userlogin'
 import { farmsAndProductsLoader, farmsLoader, farmLoader, productsLoader, productLoader } from './loaders'
-import { createFarmAction, updateFarmAction, deleteFarmAction, createProductAction, updateProductAction, deleteProductAction } from './actions'
+import { createFarmAction, updateFarmAction, deleteFarmAction, createProductAction, updateProductAction, deleteProductAction, farmerSignupAction } from './actions'
 
 const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<App/>}>
@@ -17,9 +21,11 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route path="update/farm/:id" action={updateFarmAction} /> 
         <Route path='delete/product/:id' action={deleteProductAction} />
         <Route path='delete/farm/:id' action={deleteFarmAction} />
-        <Route path='farmer/signup'/>
-        <Route path='user/signup'/>
-    </Route>
+        <Route path='farmer/signup' element={<FSignup/>} action={farmerSignupAction} /> 
+        <Route path='user/signup' element={<USignup/>} />
+        <Route path='farmer/login' element={<FLogin/>} /> 
+        <Route path='user/login' element={<ULogin/>} />
+        </Route>
 ))
 
 export default router;

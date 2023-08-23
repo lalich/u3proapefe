@@ -100,3 +100,21 @@ export const deleteProductAction = async ({params}) => {
     })
     return redirect('/')
 }
+
+export const farmerSignupAction = async ({request}) => {
+    const formData = await request.formData()
+    console.log(formData)
+    const newFarmer = {
+    farmername: formData.get('farmername'),
+    password: formData.get('password')
+}
+console.log(newFarmer)
+    await fetch(`${api}/farmer/signup`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": 'application/json'
+        },
+        body: JSON.stringify(newFarmer)
+    })
+    return redirect('/')
+}

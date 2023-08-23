@@ -11,7 +11,7 @@ const Home = () => {
     return (
         <div>
 
-        <a href='/user/signup'>Farmer Sign-up</a>
+        <a href='/farmer/signup'>Farmer Sign-up</a>
         <br/>
         <a href='/user/signup'>User Sign-up</a>
 

@@ -1,32 +1,28 @@
-import { Link, useLoaderData, Form } from 'react-router-dom'
+import { useLoaderData, Form } from 'react-router-dom'
+import { deleteFarmAction } from '../actions'
+import { farmLoader } from '../loaders'
 
-const Farmer = () => {
-    const product = useLoaderData()
-    const farm = useLoaderData()
 
-    return (
-        <div>
-        <h1>Create a Farm</h1>
-        <Form action='/create' method='POST'>
-            <input type="text" name='farmname' placeholder='Farm Name'/>
-            <input type='text' name='address' placeholder='Street Address'/>
-            <input type='text' name='state' placeholder='State'/>
-            <input type='text' name='city' placeholder='City'/>
-            <input type='text' name='image' placeholder='Farm Logo'/>
-        <input type='submit' value='Create Farm'/>
-        </Form>
-        
-        <h1>Create a Product</h1>
-        <Form action='/create' method='POST'>
-            <input type='text' name='productname' placeholder='Product Name'/>
-            <input type='text' name='image' placeholder='Product Image'/>
-            <input type='number' name='price' placeholder='Product Price'/>
-            <input type='text' name='description' placeholder='Product Description'/>
-        <input type='submit' value='Create Product'/>
-        </Form>
-        </div>
-        
-    )
-}
+const Farm = () => {
+    const farm = useLoaderData(farmLoader)
+    console.log(farm) 
 
-export default Farmer
+        return (
+            <div className='farm'>
+                <h1>{farm.farmname}</h1>
+
+                <img src={farm.image} alt={farm.farmname} />
+
+                <h3>{farm.address}</h3>
+                <h3>{farm.city}</h3>
+                <h3>{farm.state}</h3>
+           
+                      
+
+<button>favorite</button>
+                         </div>
+                         
+                     )
+             }
+
+export default Farm

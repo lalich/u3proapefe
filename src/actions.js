@@ -41,7 +41,6 @@ export const updateFarmAction = async ({request, params}) => {
     console.log(updateFarm)
         await fetch (`${api}/farm/${id}`, {
             method : 'PUT',
-            credentials:"include",
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -213,4 +212,3 @@ localStorage.setItem('loggedIn', JSON.stringify({status: true}))
 
     return redirect('/')
 }
-

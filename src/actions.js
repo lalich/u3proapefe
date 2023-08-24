@@ -16,15 +16,16 @@ export const createFarmAction = async ({request}) => {
     console.log(newFarm)
         await fetch(`${api}/farm`, {
             method: 'POST',
-            credentials: 'included',
+            credentials: 'include',
             headers: {
                 "Content-Type": 'application/json'
             },
             body: JSON.stringify(newFarm)
         })
-        return redirect('/')
+        return redirect('/farmer')
 }
 
+// update farm action
 export const updateFarmAction = async ({request, params}) => {
     const id = params.id
     const formData = await request.formData()
@@ -49,6 +50,7 @@ export const updateFarmAction = async ({request, params}) => {
         return redirect(`/`)
 }
 
+// delete farm action
 export const deleteFarmAction = async ({params}) => {
     const id = params.id
     
@@ -60,6 +62,7 @@ export const deleteFarmAction = async ({params}) => {
     return redirect('/')
 }
 
+// reate product action
 export const createProductAction = async ({request}) => {
     const formData = await request.formData()
   
@@ -68,8 +71,7 @@ export const createProductAction = async ({request}) => {
         description: formData.get('description'),
         image: formData.get('image'),
         price: formData.get('price'),
-        farmername: formData.get('farmername'),
-        username: formData.get('username')  
+      
     }    
     await fetch(`${api}/product`, {
     method: 'POST', 
@@ -82,6 +84,7 @@ export const createProductAction = async ({request}) => {
     return redirect(`/`)
 }
 
+// update product action
 export const updateProductAction = async ({request, params}) => {
     const id = params.id
     const formData = await request.formData()
@@ -92,8 +95,7 @@ export const updateProductAction = async ({request, params}) => {
         description: formData.get('description'),
         image: formData.get('image'),
         price: formData.get('price'),
-        farmername: formData.get('farmername'),
-        username: formData.get('username')
+        
       
     }
     await fetch(`${api}/product/${id}`, {
@@ -107,6 +109,7 @@ export const updateProductAction = async ({request, params}) => {
     return redirect(`/`)
 }
 
+// delete product action
 export const deleteProductAction = async ({params}) => {
     const id = params.id
     
@@ -117,6 +120,7 @@ export const deleteProductAction = async ({params}) => {
     return redirect('/')
 }
 
+// farmer signup action
 export const farmerSignupAction = async ({request}) => {
     const formData = await request.formData()
     console.log(formData)
@@ -134,12 +138,15 @@ console.log(newFarmer)
     })
     return redirect('/')
 }
+
+// user signup action
 export const userSignupAction = async ({request}) => {
     const formData = await request.formData()
     console.log(formData)
     const newUser = {
     username: formData.get('username'),
-    password: formData.get('password')
+    password: formData.get('password'),
+    zip: formData.get('zip')
 }
 console.log(newUser)
     await fetch(`${api}/user/signup`, {
@@ -152,6 +159,7 @@ console.log(newUser)
     return redirect('/')
 }
 
+// farmer login action
 export const farmerLoginAction = async ({request}) => {
     const formData = await request.formData()
     console.log(formData)
@@ -176,12 +184,15 @@ console.log(farmer)
 localStorage.setItem('loggedIn', JSON.stringify({status: true}))
     return redirect('/farmer')
 }
-export const userLoginAction = async ({request}) => {
+
+// user login action
+export const userLoginAction = async ({ request }) => {
     const formData = await request.formData()
     console.log(formData)
     const user = {
     username: formData.get('username'),
-    password: formData.get('password')
+    password: formData.get('password'),
+    zip: formData.get('zip')
 }
 console.log(user)
     const response = await fetch(`${api}/user/login`, {
@@ -195,7 +206,7 @@ console.log(user)
 
     if (response.status >= 400) {
         alert(response.statusText)
-        return redirect('/user/login')
+        window.location.href='/user/login'
     }
 
 localStorage.setItem('loggedIn', JSON.stringify({status: true}))

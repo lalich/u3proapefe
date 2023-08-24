@@ -4,8 +4,8 @@ import { farmerLoader } from '../../loaders';
 
 const FarmerHome = () => {
     const { fFarms, fProducts }  = useLoaderData(farmerLoader())
-    
-   
+    console.log(fFarms.farmername)
+   console.log(fFarms)
 
 
     return (
@@ -19,8 +19,6 @@ const FarmerHome = () => {
             <input type='text' name='city' placeholder='City'/>
             <input type='text' name='state' placeholder='State'/>
             <input type='text' name='zip' placeholder='Zip'/>
-            
-           
 
         <input type='submit' value='Create Farm'/>
         </Form>
@@ -34,6 +32,8 @@ const FarmerHome = () => {
             
         <input type='submit' value='Create Product'/>
         </Form>
+
+
         <h1>List of da Product$</h1>
             {fProducts.map((product, index) => (
                 <div key={product._id} className='productname'>

@@ -1,35 +1,36 @@
 import { useLoaderData, Form } from 'react-router-dom'
 import { deleteFarmAction } from '../../actions'
-import { farmLoader } from '../../loaders'
+import { farmerLoader } from '../../loaders'
 
 
-const Farm = () => {
-    const farm = useLoaderData(farmLoader)
-    console.log(farm) 
+const FFarm = () => {
+    const fFarm = useLoaderData(farmerLoader)
+    console.log(fFarm) 
 
         return (
             <div className='farm'>
-                <h1>{farm.farmname}</h1>
+                <h1>{fFarm.farmname}</h1>
 
-                <img src={farm.image} alt={farm.farmname} />
+                <img src={fFarm.image} alt={fFarm.farmname} />
 
-                <h3>{farm.address}</h3>
-                <h3>{farm.city}</h3>
-                <h3>{farm.state}</h3>
+                <h3>{fFarm.address}</h3>
+                <h3>{fFarm.city}</h3>
+                <h3>{fFarm.state}</h3>
+                <h3>{fFarm.zip}</h3>
            
                          <h1>Edit Farm</h1>
 
-                         <Form action={`/update/farm/${farm._id}`} method='PUT'>
-                             <input type='text' name='farmname' placeholder={farm.farmname}/>
-                             <input type='text' name='image' placeholder={farm.image}/>
-                             <input type='number' name='address' placeholder={farm.address}/>
-                             <input type='text' name='city' placeholder={farm.city}/>
-                             <input type='text' name='state' placeholder={farm.state}/>
+                         <Form action={`/update/farm/${fFarm._id}`} method='PUT'>
+                             <input type='text' name='farmname' placeholder={fFarm.farmname}/>
+                             <input type='text' name='image' placeholder={fFarm.image}/>
+                             <input type='number' name='address' placeholder={fFarm.address}/>
+                             <input type='text' name='city' placeholder={fFarm.city}/>
+                             <input type='text' name='state' placeholder={fFarm.state}/>
                              <input type='submit' value='Edit Farm'/>
                          </Form>
              
                          <h2>Delete Farm</h2>
-                 <Form action={`/delete/farm/${farm._id}`} method="post">
+                 <Form action={`/delete/farm/${fFarm._id}`} method="post">
                      <input type="submit" value="Delete da Farm"/>
                  </Form>
                          </div>
@@ -37,4 +38,4 @@ const Farm = () => {
                      )
              }
 
-export default Farm
+export default FFarm

@@ -37,3 +37,10 @@
   }
 }
 
+.header{
+  background-color: orange;
+}
+
+.navbar{
+  display: flex;
+}

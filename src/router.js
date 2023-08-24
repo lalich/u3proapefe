@@ -31,8 +31,7 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route path='farmer/login' element={<FLogin/>} action={farmerLoginAction} />
         <Route path='user/login' element={<ULogin/>} action={userLoginAction} />
         <Route path='/farmer' element={<FarmerHome/>} loader={farmerLoader} />
-        <Route path='/farmer/farm' element={<FFarm/>} loader={farmerLoader} />
-        <Route path='/farmer/farm/:id' element={<FFarm/>} loader={farmerLoader} />
+        <Route path='/farmer/farm/:id' element={<FFarm/>} loader={farmLoader} />
         <Route path='/logout' element={<Home/>} />
         </Route>
 ))

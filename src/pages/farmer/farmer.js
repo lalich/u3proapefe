@@ -53,7 +53,7 @@ const FarmerHome = () => {
                     </Link>
                     <img src={farm.image} alt={farm.name} />
                     <h2>{farm.address}</h2>
-                    <h2>{farm.city} ,{farm.state}</h2>
+                    <h2>{farm.city}, {farm.state}</h2>
                     
                 </div>
             ))}

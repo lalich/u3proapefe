@@ -28,6 +28,7 @@ export const createFarmAction = async ({request}) => {
 // update farm action
 export const updateFarmAction = async ({request, params}) => {
     const id = params.id
+    console.log(id)
     const formData = await request.formData()
     
     const updateFarm = {
@@ -46,7 +47,7 @@ export const updateFarmAction = async ({request, params}) => {
             },
             body: JSON.stringify(updateFarm)
         })
-        return redirect(`/`)
+        return redirect(`/farmer`)
 }
 
 // delete farm action
@@ -58,7 +59,7 @@ export const deleteFarmAction = async ({params}) => {
         credentials: 'include',
     }
     )
-    return redirect('/')
+    return redirect('/farmer')
 }
 
 // reate product action
@@ -80,7 +81,7 @@ export const createProductAction = async ({request}) => {
     },
     body: JSON.stringify(newProduct)
 })
-    return redirect(`/`)
+    return redirect(`/farmer`)
 }
 
 // update product action
@@ -105,7 +106,7 @@ export const updateProductAction = async ({request, params}) => {
     },
     body: JSON.stringify(updateProduct)
 })
-    return redirect(`/`)
+    return redirect(`/farmer`)
 }
 
 // delete product action
@@ -116,7 +117,7 @@ export const deleteProductAction = async ({params}) => {
         method: 'DELETE',
         credentials: 'include'
     })
-    return redirect('/')
+    return redirect('/farmer')
 }
 
 // farmer signup action
@@ -212,4 +213,5 @@ localStorage.setItem('loggedIn', JSON.stringify({status: true}))
 
     return redirect('/')
 }
+
 

@@ -23,7 +23,7 @@ const FFarm = () => {
                          <Form action={`/update/farm/${fFarm._id}`} method='PUT'>
                              <input type='text' name='farmname' placeholder={fFarm.farmname}/>
                              <input type='text' name='image' placeholder={fFarm.image}/>
-                             <input type='number' name='address' placeholder={fFarm.address}/>
+                             <input type='taxt' name='address' placeholder={fFarm.address}/>
                              <input type='text' name='city' placeholder={fFarm.city}/>
                              <input type='text' name='state' placeholder={fFarm.state}/>
                              <input type='submit' value='Edit Farm'/>

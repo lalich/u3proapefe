@@ -9,7 +9,7 @@ import USignup from './pages/user/usersignup'
 import FLogin from './pages/farmer/farmerlogin'
 import ULogin from './pages/user/userlogin'
 import FarmerHome from './pages/farmer/farmer'
-import { farmsAndProductsLoader, farmsLoader, farmLoader, productsLoader, productLoader } from './loaders'
+import { farmsAndProductsLoader, farmsLoader, farmLoader, productsLoader, productLoader, farmerLoader } from './loaders'
 import { createFarmAction, updateFarmAction, deleteFarmAction, createProductAction, updateProductAction, deleteProductAction, farmerSignupAction, userSignupAction, farmerLoginAction, userLoginAction } from './actions'
 
 
@@ -29,7 +29,7 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route path='user/signup' element={<USignup/>} action={userSignupAction} />
         <Route path='farmer/login' element={<FLogin/>} action={farmerLoginAction} />
         <Route path='user/login' element={<ULogin/>} action={userLoginAction} />
-        <Route path='/farmer' element={<FarmerHome/>} loader={farmsAndProductsLoader} />
+        <Route path='/farmer' element={<FarmerHome/>} loader={farmerLoader} />
         <Route path='/logout' element={<Home/>} />
         </Route>
 ))

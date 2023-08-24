@@ -1,14 +1,16 @@
-import { Link, useLoaderData, Form } from 'react-router-dom';
-import { farmsAndProductsLoader } from '../../loaders';
+import { Link, useLoaderData, Form, redirect } from 'react-router-dom';
+import { farmerLoader } from '../../loaders';
+// import axios from 'axios'
 
 const FarmerHome = () => {
-    const { farms, products }  = useLoaderData(farmsAndProductsLoader())
+    const { fFarms, fProducts }  = useLoaderData(farmerLoader())
     
+   
 
 
-    console.log(farms)
     return (
         <div>
+                <h1>Welcome to {fFarms.farmname} {fFarms.farmername} </h1>
             <h1>Create a Farm</h1>
         <Form action='/create/farm' method='POST'>
             <input type='text' name='farmname' placeholder='Farm Name'/>
@@ -16,8 +18,9 @@ const FarmerHome = () => {
             <input type='text' name='address' placeholder='Address'/>
             <input type='text' name='city' placeholder='City'/>
             <input type='text' name='state' placeholder='State'/>
-            <input type='text' name='username' placeholder='Username' />
-            <input type='text' name='password' placeholder='Password' />
+            <input type='text' name='zip' placeholder='Zip'/>
+            
+           
 
         <input type='submit' value='Create Farm'/>
         </Form>
@@ -27,12 +30,12 @@ const FarmerHome = () => {
             <input type='text' name='image' placeholder='Product Image'/>
             <input type='number' name='price' placeholder='Product Price'/>
             <input type='text' name='description' placeholder='Product Description'/>
-            <input type='text' name='username' placeholder='Username' />
+
             
         <input type='submit' value='Create Product'/>
         </Form>
         <h1>List of da Product$</h1>
-            {products.map((product, index) => (
+            {fProducts.map((product, index) => (
                 <div key={product._id} className='productname'>
                     <Link to={`product/${product._id}`}>
                         <h1>{product.productname}</h1>
@@ -43,7 +46,7 @@ const FarmerHome = () => {
                 </div>
             ))}
             <h1>Welcome to the FarmLand$</h1>
-        {farms.map((farm, index) => (
+        {fFarms.map((farm, index) => (
                 <div key={farm._id} className='farmname'>
                     <Link to={`farm/${farm._id}`}>
                         <h1>{farm.farmname}</h1>

@@ -17,21 +17,7 @@ const Farm = () => {
                 <h3>{farm.city}</h3>
                 <h3>{farm.state}</h3>
            
-                         {/* <h1>Edit Farm</h1>
-
-                         <Form action={`/update/farm/${farm._id}`} method='PUT'>
-                             <input type='text' name='farmname' placeholder={farm.farmname}/>
-                             <input type='text' name='image' placeholder={farm.image}/>
-                             <input type='number' name='address' placeholder={farm.address}/>
-                             <input type='text' name='city' placeholder={farm.city}/>
-                             <input type='text' name='state' placeholder={farm.state}/>
-                             <input type='submit' value='Edit Farm'/>
-                         </Form>
-             
-                         <h2>Delete Farm</h2>
-                 <Form action={`/delete/farm/${farm._id}`} method="post">
-                     <input type="submit" value="Delete da Farm"/>
-                 </Form> */}
+                      
 
 <button>favorite</button>
                          </div>

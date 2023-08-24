@@ -4,7 +4,7 @@ import axios from 'axios'
 
 const FarmerHome = () => {
     const { fFarms, fProducts }  = useLoaderData(farmerLoader())
-    
+    console.log(fFarms.farmername)
    
 
 
@@ -19,8 +19,6 @@ const FarmerHome = () => {
             <input type='text' name='city' placeholder='City'/>
             <input type='text' name='state' placeholder='State'/>
             <input type='text' name='zip' placeholder='Zip'/>
-            
-           
 
         <input type='submit' value='Create Farm'/>
         </Form>

@@ -3,7 +3,7 @@ import { deleteFarmAction } from '../../actions'
 import { farmLoader } from '../../loaders'
 
 
-const Farm = () => {
+const FFarm = () => {
     const farm = useLoaderData(farmLoader)
     console.log(farm) 
 
@@ -37,4 +37,4 @@ const Farm = () => {
                      )
              }
 
-export default Farm
+export default FFarm

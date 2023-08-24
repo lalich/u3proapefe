@@ -48,7 +48,7 @@ return redirect ('/farmer/login')
     })
     console.log(farmerProductsResponse)
         const fProducts = await farmerProductsResponse.json()
-
+console.log(fFarms)
     return { fFarms, fProducts }
 }
 

@@ -70,8 +70,7 @@ export const createProductAction = async ({request}) => {
         description: formData.get('description'),
         image: formData.get('image'),
         price: formData.get('price'),
-        farmername: formData.get('farmername'),
-        username: formData.get('username')  
+      
     }    
     await fetch(`${api}/product`, {
     method: 'POST', 
@@ -95,8 +94,7 @@ export const updateProductAction = async ({request, params}) => {
         description: formData.get('description'),
         image: formData.get('image'),
         price: formData.get('price'),
-        farmername: formData.get('farmername'),
-        username: formData.get('username')
+        
       
     }
     await fetch(`${api}/product/${id}`, {

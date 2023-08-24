@@ -37,18 +37,18 @@ export const farmerLoader = async () => {
 return redirect ('/farmer/login')
     }
 
-    const farmerFarmsResponse = await fetch(`${api}/farm`, {
+    const farmerFarmsResponse = await fetch(`${api}/farmer/farm`, {
         credentials: 'include'
     })
     console.log(farmerFarmsResponse)
     const fFarms = await farmerFarmsResponse.json()
 
-    const farmerProductsResponse = await fetch(`${api}/product`, {
+    const farmerProductsResponse = await fetch(`${api}/farmer/product`, {
         credentials: 'include'
     })
     console.log(farmerProductsResponse)
         const fProducts = await farmerProductsResponse.json()
-console.log(fFarms)
+console.log(fProducts)
     return { fFarms, fProducts }
 }
 

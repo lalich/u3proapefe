@@ -26,6 +26,7 @@ const FFarm = () => {
                              <input type='taxt' name='address' placeholder={fFarm.address}/>
                              <input type='text' name='city' placeholder={fFarm.city}/>
                              <input type='text' name='state' placeholder={fFarm.state}/>
+                             <input type='text' name='zip' placeholder={fFarm.zip}/>
                              <input type='submit' value='Edit Farm'/>
                          </Form>
              

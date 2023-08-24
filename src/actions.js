@@ -5,22 +5,21 @@ import { redirect } from 'react-router-dom'
 export const createFarmAction = async ({request}) => {
     const formData = await request.formData()
     
-    const newFarm = {
+    const nFarm = {
         farmname: formData.get('farmname'),
         image: formData.get('image'),
         address: formData.get('address'),
         state: formData.get('state'),
         city: formData.get('city'),
-        zip: formData.get('zip')
+        zip: formData.get('zip'),
     }
-    console.log(newFarm)
         await fetch(`${api}/farm`, {
             method: 'POST',
             credentials: 'include',
             headers: {
                 "Content-Type": 'application/json'
             },
-            body: JSON.stringify(newFarm)
+            body: JSON.stringify(nFarm)
         })
         return redirect('/farmer')
 }
@@ -35,13 +34,14 @@ export const updateFarmAction = async ({request, params}) => {
         farmname: formData.get('farmname'),
         image: formData.get('image'),
         address: formData.get('address'),
-        state: formData.get('state'),
         city: formData.get('city'),
+        state: formData.get('state'),
         zip: formData.get('zip'),
     }
     console.log(updateFarm)
         await fetch (`${api}/farm/${id}`, {
             method : 'PUT',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json'
             },

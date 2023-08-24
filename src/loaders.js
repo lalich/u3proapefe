@@ -55,22 +55,22 @@ console.log(fProducts)
 
 export const userLoader = async () => {
     // user auth check
-    if (!authFCheck()){
-        return redirect ('/farmer/login')
+    if (!authUCheck()){
+        return redirect ('/user/login')
             }
     const farmerFarmsResponse = await fetch(`${api}/farm`, {
         credentials: 'include'
     })
     console.log(farmerFarmsResponse)
-    const fFarms = await farmerFarmsResponse.json()
+    const uFarms = await farmerFarmsResponse.json()
 
     const farmerProductsResponse = await fetch(`${api}/product`, {
         credentials: 'include'
     })
     console.log(farmerProductsResponse)
-        const fProducts = await farmerProductsResponse.json()
+        const uProducts = await farmerProductsResponse.json()
 
-    return { fFarms, fProducts }
+    return { uFarms, uProducts }
 }
 
 

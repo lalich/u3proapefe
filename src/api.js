@@ -1,1 +1,1 @@
-export const api = 'http://localhost:1234'
+export const api = 'https://beapefood.onrender.com'

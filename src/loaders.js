@@ -1,5 +1,25 @@
 import { api } from './api'
+import { redirect } from 'react-router-dom'
 
+// farmer auth check
+const authFCheck = () => {
+    const loggedIn = localStorage.getItem('loggedIn')
+
+    if(!loggedIn){
+        return false
+    }
+    return true
+}
+// user auth chek
+const authUCheck = () => {
+    const loggedIn = localStorage.getItem('loggedIn')
+
+    if(!loggedIn){
+        return false
+    }
+    return true
+}
+// all home loader
 export const farmsAndProductsLoader = async () => {
     const farmsResponse = await fetch(`${api}/farm`)
     const farms = await farmsResponse.json()
@@ -12,11 +32,41 @@ export const farmsAndProductsLoader = async () => {
     }
 
 export const farmerLoader = async () => {
-    const farmerFarmsResponse = await fetch(`${api}/farm`)
+// farmer auth check
+    if (!authFCheck()){
+return redirect ('/farmer/login')
+    }
+
+    const farmerFarmsResponse = await fetch(`${api}/farm`, {
+        credentials: 'include'
+    })
     console.log(farmerFarmsResponse)
     const fFarms = await farmerFarmsResponse.json()
 
-    const farmerProductsResponse = await fetch(`${api}/product`)
+    const farmerProductsResponse = await fetch(`${api}/product`, {
+        credentials: 'include'
+    })
+    console.log(farmerProductsResponse)
+        const fProducts = await farmerProductsResponse.json()
+
+    return { fFarms, fProducts }
+}
+
+
+export const userLoader = async () => {
+    // user auth check
+    if (!authFCheck()){
+        return redirect ('/farmer/login')
+            }
+    const farmerFarmsResponse = await fetch(`${api}/farm`, {
+        credentials: 'include'
+    })
+    console.log(farmerFarmsResponse)
+    const fFarms = await farmerFarmsResponse.json()
+
+    const farmerProductsResponse = await fetch(`${api}/product`, {
+        credentials: 'include'
+    })
     console.log(farmerProductsResponse)
         const fProducts = await farmerProductsResponse.json()
 

@@ -5,10 +5,12 @@ import { farmerLoader } from '../../loaders'
 
 const FFarm = () => {
     const fFarm = useLoaderData(farmerLoader)
+    console.log("yikes")
     console.log(fFarm) 
 
         return (
             <div className='farm'>
+
                 <h1>{fFarm.farmname}</h1>
 
                 <img src={fFarm.image} alt={fFarm.farmname} />

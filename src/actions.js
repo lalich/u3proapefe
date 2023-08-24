@@ -28,6 +28,9 @@ export const createFarmAction = async ({request}) => {
 // update farm action
 export const updateFarmAction = async ({request, params}) => {
     const id = params.id
+    console.log("yooo")
+    console.log(request)
+    console.log(id)
     const formData = await request.formData()
     
     const updateFarm = {

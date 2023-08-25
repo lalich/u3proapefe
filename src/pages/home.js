@@ -9,7 +9,6 @@ const Home = () => {
 
     console.log(farms)
     return (
-
         <div>
 
 

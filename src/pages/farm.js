@@ -16,10 +16,8 @@ const Farm = () => {
                 <h3>{farm.address}</h3>
                 <h3>{farm.city}</h3>
                 <h3>{farm.state}</h3>
-           
-                      
-
-<button>favorite</button>
+                
+                <button>favorite</button>
                          </div>
                          
                      )

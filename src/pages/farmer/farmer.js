@@ -1,11 +1,11 @@
 import { Link, useLoaderData, Form, redirect } from 'react-router-dom';
 import { farmerLoader } from '../../loaders';
-import axios from 'axios'
+// import axios from 'axios'
 
 const FarmerHome = () => {
     const { fFarms, fProducts }  = useLoaderData(farmerLoader())
-    
-   
+    console.log(fFarms.farmername)
+   console.log(fFarms)
 
 
     return (
@@ -19,8 +19,6 @@ const FarmerHome = () => {
             <input type='text' name='city' placeholder='City'/>
             <input type='text' name='state' placeholder='State'/>
             <input type='text' name='zip' placeholder='Zip'/>
-            
-           
 
         <input type='submit' value='Create Farm'/>
         </Form>
@@ -34,6 +32,8 @@ const FarmerHome = () => {
             
         <input type='submit' value='Create Product'/>
         </Form>
+
+
         <h1>List of da Product$</h1>
             {fProducts.map((product, index) => (
                 <div key={product._id} className='productname'>
@@ -53,7 +53,7 @@ const FarmerHome = () => {
                     </Link>
                     <img src={farm.image} alt={farm.name} />
                     <h2>{farm.address}</h2>
-                    <h2>{farm.city} ,{farm.state}</h2>
+                    <h2>{farm.city}, {farm.state}</h2>
                     
                 </div>
             ))}

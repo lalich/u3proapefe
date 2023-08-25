@@ -168,6 +168,7 @@ export const farmerLoginAction = async ({request}) => {
     password: formData.get('password')
 }
 console.log(farmer)
+    console.log("hiii")
     const response = await fetch(`${api}/farmer/login`, {
         method: 'POST',
         credentials: 'include',
@@ -178,7 +179,7 @@ console.log(farmer)
     })
     if (response.status >=400) {
         alert(response.statusText)
-        return redirect('/user/login')
+        return redirect('/farmer/login')
     }
 
 localStorage.setItem('loggedIn', JSON.stringify({status: true}))

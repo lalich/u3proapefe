@@ -17,9 +17,10 @@ const Product = () => {
                 Locally Sourced by farmer:<br/>
                 {product.farmername}</h1>
                 <img src={product.image}/>
-                <h5>{product.description}</h5>
+               <br/>
+                <h3>{product.price}</h3><br/>
 
-           
+                <h5>{product.description}</h5>
             
             <button>favorite</button>
             </div>

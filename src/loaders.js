@@ -33,19 +33,21 @@ export const farmsAndProductsLoader = async () => {
 
 export const farmerLoader = async () => {
 // farmer auth check
-    if (!authFCheck()){
+    if (!authFCheck()){ console.count()
 return redirect ('/farmer/login')
     }
-
+console.count()
     const farmerFarmsResponse = await fetch(`${api}/farmer/farm`, {
         credentials: 'include'
     })
+    console.count()
     console.log(farmerFarmsResponse)
     const fFarms = await farmerFarmsResponse.json()
-
+    console.count()
     const farmerProductsResponse = await fetch(`${api}/farmer/product`, {
         credentials: 'include'
     })
+    console.count()
     console.log(farmerProductsResponse)
         const fProducts = await farmerProductsResponse.json()
 console.log(fProducts)

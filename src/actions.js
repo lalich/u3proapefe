@@ -5,35 +5,7 @@ import { redirect } from 'react-router-dom'
 export const createFarmAction = async ({request}) => {
     const formData = await request.formData()
     
-    const newFarm = {
-        farmname: formData.get('farmname'),
-        image: formData.get('image'),
-        address: formData.get('address'),
-        state: formData.get('state'),
-        city: formData.get('city'),
-        zip: formData.get('zip')
-    }
-    console.log(newFarm)
-        await fetch(`${api}/farm`, {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-                "Content-Type": 'application/json'
-            },
-            body: JSON.stringify(newFarm)
-        })
-        return redirect('/farmer')
-}
-
-// update farm action
-export const updateFarmAction = async ({request, params}) => {
-    const id = params.id
-    console.log("yooo")
-    console.log(request)
-    console.log(id)
-    const formData = await request.formData()
-    
-    const updateFarm = {
+    const nFarm = {
         farmname: formData.get('farmname'),
         image: formData.get('image'),
         address: formData.get('address'),
@@ -41,15 +13,41 @@ export const updateFarmAction = async ({request, params}) => {
         city: formData.get('city'),
         zip: formData.get('zip'),
     }
+        await fetch(`${api}/farm`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                "Content-Type": 'application/json'
+            },
+            body: JSON.stringify(nFarm)
+        })
+        return redirect('/farmer')
+}
+
+// update farm action
+export const updateFarmAction = async ({request, params}) => {
+    const id = params.id
+    console.log(id)
+    const formData = await request.formData()
+    
+    const updateFarm = {
+        farmname: formData.get('farmname'),
+        image: formData.get('image'),
+        address: formData.get('address'),
+        city: formData.get('city'),
+        state: formData.get('state'),
+        zip: formData.get('zip'),
+    }
     console.log(updateFarm)
         await fetch (`${api}/farm/${id}`, {
             method : 'PUT',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(updateFarm)
         })
-        return redirect(`/`)
+        return redirect(`/farmer`)
 }
 
 // delete farm action
@@ -61,7 +59,7 @@ export const deleteFarmAction = async ({params}) => {
         credentials: 'include',
     }
     )
-    return redirect('/')
+    return redirect('/farmer')
 }
 
 // reate product action
@@ -83,7 +81,7 @@ export const createProductAction = async ({request}) => {
     },
     body: JSON.stringify(newProduct)
 })
-    return redirect(`/`)
+    return redirect(`/farmer`)
 }
 
 // update product action
@@ -108,7 +106,7 @@ export const updateProductAction = async ({request, params}) => {
     },
     body: JSON.stringify(updateProduct)
 })
-    return redirect(`/`)
+    return redirect(`/farmer`)
 }
 
 // delete product action
@@ -119,7 +117,7 @@ export const deleteProductAction = async ({params}) => {
         method: 'DELETE',
         credentials: 'include'
     })
-    return redirect('/')
+    return redirect('/farmer')
 }
 
 // farmer signup action
@@ -215,3 +213,5 @@ localStorage.setItem('loggedIn', JSON.stringify({status: true}))
 
     return redirect('/')
 }
+
+

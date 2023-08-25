@@ -3,21 +3,34 @@ import { redirect } from 'react-router-dom'
 
 // farmer auth check
 const authFCheck = () => {
-    const loggedIn = localStorage.getItem('loggedIn')
+    // const loggedIn = localStorage.getItem('loggedIn')
 
-    if(!loggedIn){
-        return false
-    }
-    return true
+    // if(!loggedIn){
+    //     return false
+    // }
+    // return true
+    const token = document.cookie
+    .split('; ')
+    .find(row => row.startsWith('token'))
+    .split('=')[1]
+
+    return token !== undefined && token !== ''
+
 }
 // user auth chek
 const authUCheck = () => {
-    const loggedIn = localStorage.getItem('loggedIn')
+    // const loggedIn = localStorage.getItem('loggedIn')
 
-    if(!loggedIn){
-        return false
-    }
-    return true
+    // if(!loggedIn){
+    //     return false
+    // }
+    // return true
+    const token = document.cookie
+    .split('; ')
+    .find(row => row.startsWith('token'))
+    .split('=')[1]
+
+    return token !== undefined && token !== ''
 }
 // all home loader
 export const farmsAndProductsLoader = async () => {

@@ -213,3 +213,5 @@ localStorage.setItem('loggedIn', JSON.stringify({status: true}))
 
     return redirect('/')
 }
+
+

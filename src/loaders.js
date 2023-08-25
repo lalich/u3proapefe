@@ -17,7 +17,7 @@ const authFCheck = () => {
         const token = tokenCookie.split('=')[1]
         return token !== undefined && token !== ''
     } else {
-        window.location.href = '/farmer/login'
+        // window.location.href = '/farmer/login'
         return false
        
     }
@@ -59,7 +59,7 @@ export const farmerLoader = async () => {
 // farmer auth check
     if (!authFCheck()){ 
         console.count()
-        window.location.href = '/farmer/login'
+        // window.location.href = '/farmer/login'
     }
 console.count()
     const farmerFarmsResponse = await fetch(`${api}/farmer/farm`, {

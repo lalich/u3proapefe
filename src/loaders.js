@@ -9,18 +9,6 @@ const authFCheck = () => {
         return false
     }
     return true
-    // const tokenCookie = document.cookie
-    // .split('; ')
-    // .find(row => row.startsWith('token'))
-    // console.log(tokenCookie)
-    // if (tokenCookie) {
-    //     const token = tokenCookie.split('=')[1]
-    //     return token !== undefined && token !== ''
-    // } else {
-    //     return false
-       
-    // }
-
 }
 // user auth chek
 const authUCheck = () => {
@@ -30,16 +18,6 @@ const authUCheck = () => {
         return false
     }
     return true
-    // const tokenCookie = document.cookie
-    // .split('; ')
-    // .find(row => row.startsWith('token'))
-    
-    // if (tokenCookie) {
-    //     const token = tokenCookie.split('=')[1]
-    //     return token !== undefined && token !== ''
-    // } else {
-    //     return false
-    // }
 }
 // all home loader
 export const farmsAndProductsLoader = async () => {
@@ -54,24 +32,21 @@ export const farmsAndProductsLoader = async () => {
     }
 
 export const farmerLoader = async () => {
-    const history = useHistroy()
 // farmer auth check
-    if (!authFCheck()){ 
-        history.push('/farmer/login')
-return null
+    if (!authFCheck()){
+        console.log("hii")
+    return redirect ('/farmer/login')
     }
-console.count()
+
     const farmerFarmsResponse = await fetch(`${api}/farmer/farm`, {
         credentials: 'include'
     })
-    console.count()
     console.log(farmerFarmsResponse)
     const fFarms = await farmerFarmsResponse.json()
-    console.count()
+
     const farmerProductsResponse = await fetch(`${api}/farmer/product`, {
         credentials: 'include'
     })
-    console.count()
     console.log(farmerProductsResponse)
         const fProducts = await farmerProductsResponse.json()
 console.log(fProducts)
@@ -80,11 +55,9 @@ console.log(fProducts)
 
 
 export const userLoader = async () => {
-    const histroy = useHistroy()
     // user auth check
     if (!authUCheck()){
-        histroy.push('user/login')
-        return null
+        return redirect ('/user/login')
             }
     const farmerFarmsResponse = await fetch(`${api}/farm`, {
         credentials: 'include'

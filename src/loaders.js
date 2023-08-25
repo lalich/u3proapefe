@@ -54,9 +54,11 @@ export const farmsAndProductsLoader = async () => {
     }
 
 export const farmerLoader = async () => {
+    const history = useHistroy()
 // farmer auth check
-    if (!authFCheck()){ console.count()
-return redirect ('/farmer/login')
+    if (!authFCheck()){ 
+        history.push('/farmer/login')
+return null
     }
 console.count()
     const farmerFarmsResponse = await fetch(`${api}/farmer/farm`, {
@@ -78,9 +80,11 @@ console.log(fProducts)
 
 
 export const userLoader = async () => {
+    const histroy = useHistroy()
     // user auth check
     if (!authUCheck()){
-        return redirect ('/user/login')
+        histroy.push('user/login')
+        return null
             }
     const farmerFarmsResponse = await fetch(`${api}/farm`, {
         credentials: 'include'

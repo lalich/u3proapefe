@@ -17,11 +17,12 @@ const authFCheck = () => {
         const token = tokenCookie.split('=')[1]
         return token !== undefined && token !== ''
     } else {
+        window.location.href = '/farmer/login'
         return false
        
     }
-
 }
+
 // user auth chek
 const authUCheck = () => {
     // const loggedIn = localStorage.getItem('loggedIn')
@@ -38,6 +39,7 @@ const authUCheck = () => {
         const token = tokenCookie.split('=')[1]
         return token !== undefined && token !== ''
     } else {
+        window.location.href = '/user/login'
         return false
     }
 }
@@ -55,8 +57,9 @@ export const farmsAndProductsLoader = async () => {
 
 export const farmerLoader = async () => {
 // farmer auth check
-    if (!authFCheck()){ console.count()
-return redirect ('/farmer/login')
+    if (!authFCheck()){ 
+        console.count()
+        window.location.href = '/farmer/login'
     }
 console.count()
     const farmerFarmsResponse = await fetch(`${api}/farmer/farm`, {
@@ -80,7 +83,7 @@ console.log(fProducts)
 export const userLoader = async () => {
     // user auth check
     if (!authUCheck()){
-        return redirect ('/user/login')
+     window.location.href = '/user/login'
             }
     const farmerFarmsResponse = await fetch(`${api}/farm`, {
         credentials: 'include'

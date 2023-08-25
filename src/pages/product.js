@@ -13,8 +13,11 @@ const Product = () => {
             
             <div className='farm'>
                 
-                <h1>{product.productname}</h1>
+                <h1>{product.productname}<br/>
+                Locally Sourced from your local farmer:<br/>
+                {product.farmername}                </h1>
                 <img src={product.image}/>
+
                 <h5>{product.description}</h5>
 
            

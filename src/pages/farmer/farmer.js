@@ -1,6 +1,6 @@
 import { Link, useLoaderData, Form, redirect } from 'react-router-dom';
 import { farmerLoader } from '../../loaders';
-import axios from 'axios'
+// import axios from 'axios'
 
 const FarmerHome = () => {
     const { fFarms, fProducts }  = useLoaderData(farmerLoader())

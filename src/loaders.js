@@ -56,7 +56,7 @@ export const farmsAndProductsLoader = async () => {
 
 export const farmerLoader = async () => {
 // farmer auth check
-    if (!authFCheck()){ console.count()
+    if (!authFCheck()){
 return redirect ('/farmer/login')
     }
 

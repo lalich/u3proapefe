@@ -5,42 +5,42 @@ import { redirect } from 'react-router-dom'
 const authFCheck = () => {
     const loggedIn = localStorage.getItem('loggedIn')
 
-    // if(!loggedIn){
-    //     return false
-    // }
-    // return true
-    const tokenCookie = document.cookie
-    .split('; ')
-    .find(row => row.startsWith('token'))
-    console.log(tokenCookie)
-    if (tokenCookie) {
-        const token = tokenCookie.split('=')[1]
-        return token !== undefined && token !== ''
-    } else {
+    if(!loggedIn){
         return false
     }
+    return true
+    // const tokenCookie = document.cookie
+    // .split('; ')
+    // .find(row => row.startsWith('token'))
+    // console.log(tokenCookie)
+    // if (tokenCookie) {
+    //     const token = tokenCookie.split('=')[1]
+    //     return token !== undefined && token !== ''
+    // } else {
+    //     return false
+    // }
 
 }
 
 // user auth chek
 const authUCheck = () => {
-    // const loggedIn = localStorage.getItem('loggedIn')
+    const loggedIn = localStorage.getItem('loggedIn')
 
-    // if(!loggedIn){
-    //     return false
-    // }
-    // return true
-    const tokenCookie = document.cookie
-    .split('; ')
-    .find(row => row.startsWith('token'))
-    
-    if (tokenCookie) {
-        const token = tokenCookie.split('=')[1]
-        return token !== undefined && token !== ''
-    } else {
+    if(!loggedIn){
         return false
     }
     return true
+    // const tokenCookie = document.cookie
+    // .split('; ')
+    // .find(row => row.startsWith('token'))
+    
+    // if (tokenCookie) {
+    //     const token = tokenCookie.split('=')[1]
+    //     return token !== undefined && token !== ''
+    // } else {
+    //     return false
+    // }
+    // return true
 }
 // all home loader
 export const farmsAndProductsLoader = async () => {
@@ -79,7 +79,8 @@ console.log(fProducts)
 export const userLoader = async () => {
     // user auth check
     if (!authUCheck()){
-     window.location.href = '/user/login'
+    //  window.location.href = '/user/login'
+    return redirect ('/user/login')
             }
     const farmerFarmsResponse = await fetch(`${api}/farm`, {
         credentials: 'include'

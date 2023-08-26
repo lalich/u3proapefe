@@ -1,3 +1,3 @@
-export const api = "http://localhost:4000"
+const localapi = "http://localhost:123"
 
-const realApi = 'https://beapefood.onrender.com'
+export const api = 'https://beapefood.onrender.com'

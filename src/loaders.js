@@ -3,7 +3,7 @@ import { redirect } from 'react-router-dom'
 
 // farmer auth check
 const authFCheck = () => {
-    // const loggedIn = localStorage.getItem('loggedIn')
+    const loggedIn = localStorage.getItem('loggedIn')
 
     // if(!loggedIn){
     //     return false
@@ -17,10 +17,9 @@ const authFCheck = () => {
         const token = tokenCookie.split('=')[1]
         return token !== undefined && token !== ''
     } else {
-        window.location.href = '/farmer/login'
         return false
-       
     }
+
 }
 
 // user auth chek
@@ -39,9 +38,9 @@ const authUCheck = () => {
         const token = tokenCookie.split('=')[1]
         return token !== undefined && token !== ''
     } else {
-        window.location.href = '/user/login'
         return false
     }
+    return true
 }
 // all home loader
 export const farmsAndProductsLoader = async () => {
@@ -57,22 +56,19 @@ export const farmsAndProductsLoader = async () => {
 
 export const farmerLoader = async () => {
 // farmer auth check
-    if (!authFCheck()){ 
-        console.count()
-        window.location.href = '/farmer/login'
+    if (!authFCheck()){ console.count()
+return redirect ('/farmer/login')
     }
-console.count()
+
     const farmerFarmsResponse = await fetch(`${api}/farmer/farm`, {
         credentials: 'include'
     })
-    console.count()
     console.log(farmerFarmsResponse)
     const fFarms = await farmerFarmsResponse.json()
-    console.count()
+
     const farmerProductsResponse = await fetch(`${api}/farmer/product`, {
         credentials: 'include'
     })
-    console.count()
     console.log(farmerProductsResponse)
         const fProducts = await farmerProductsResponse.json()
 console.log(fProducts)

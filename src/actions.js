@@ -168,6 +168,7 @@ export const farmerLoginAction = async ({request}) => {
     password: formData.get('password')
 }
 console.log(farmer)
+    console.log("hiii")
     const response = await fetch(`${api}/farmer/login`, {
         method: 'POST',
         credentials: 'include',

@@ -34,7 +34,7 @@ export const farmsAndProductsLoader = async () => {
 export const farmerLoader = async () => {
 // farmer auth check
     if (!authFCheck()){
-return redirect ('/farmer/login')
+        return redirect('/')
     }
 
     const farmerFarmsResponse = await fetch(`${api}/farmer/farm`, {

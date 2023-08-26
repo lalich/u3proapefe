@@ -1,0 +1,111 @@
+.App {
+  text-align: center;
+}
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.App-link {
+  color: #61dafb;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* nav bar */
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  padding: 20px;
+  background-color: #c1c1c1;
+}
+.login-container {
+  flex: 1;
+}
+/* User login */
+.login-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  background: #e0e0e0;
+  box-shadow:  20px 20px 60px #bebebe ;
+  width: 300px;
+  margin-right: 10px;
+  margin-top: 6px;
+  text-align: center;
+  float: right;
+  height: 850px;
+  display: flex;
+  flex-direction: column;
+}
+.login-container h3 {
+  margin-bottom: 20px;
+}
+.login-form .input-group {
+  text-align: left;
+  margin-bottom: 25px;
+  color: #71b1f6;
+}
+.login-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
+.submit-button {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 40px;
+  
+}
+.submit-button:hover {
+  color: #0056b3;
+  border: 10px solid blue;
+  transition: 0.001 ease-in;
+}
+.notauser {
+  margin-top: 502px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

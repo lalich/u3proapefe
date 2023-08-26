@@ -5,16 +5,39 @@ import { redirect } from 'react-router-dom'
 const authFCheck = () => {
     const loggedIn = localStorage.getItem('loggedIn')
 
-    if(!loggedIn){
+    // if(!loggedIn){
+    //     return false
+    // }
+    // return true
+    const tokenCookie = document.cookie
+    .split('; ')
+    .find(row => row.startsWith('token'))
+    console.log(tokenCookie)
+    if (tokenCookie) {
+        const token = tokenCookie.split('=')[1]
+        return token !== undefined && token !== ''
+    } else {
         return false
     }
-    return true
+
 }
+
 // user auth chek
 const authUCheck = () => {
-    const loggedIn = localStorage.getItem('loggedIn')
+    // const loggedIn = localStorage.getItem('loggedIn')
 
-    if(!loggedIn){
+    // if(!loggedIn){
+    //     return false
+    // }
+    // return true
+    const tokenCookie = document.cookie
+    .split('; ')
+    .find(row => row.startsWith('token'))
+    
+    if (tokenCookie) {
+        const token = tokenCookie.split('=')[1]
+        return token !== undefined && token !== ''
+    } else {
         return false
     }
     return true
@@ -33,9 +56,8 @@ export const farmsAndProductsLoader = async () => {
 
 export const farmerLoader = async () => {
 // farmer auth check
-    if (!authFCheck()){
-        console.log("hii")
-    return redirect ('/farmer/login')
+    if (!authFCheck()){ console.count()
+return redirect ('/farmer/login')
     }
 
     const farmerFarmsResponse = await fetch(`${api}/farmer/farm`, {
@@ -57,7 +79,7 @@ console.log(fProducts)
 export const userLoader = async () => {
     // user auth check
     if (!authUCheck()){
-        return redirect ('/user/login')
+     window.location.href = '/user/login'
             }
     const farmerFarmsResponse = await fetch(`${api}/farm`, {
         credentials: 'include'
